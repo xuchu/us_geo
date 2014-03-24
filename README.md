@@ -1,4 +1,6 @@
-US_GEO_DATA
+us_geo
 ===========
 
-The project wants to use ActiveRecord to insert the data of city and state into database.  
+Purpose
+
+The project wants to use ActiveRecord to insert U.S cities and states infomation into database.  
