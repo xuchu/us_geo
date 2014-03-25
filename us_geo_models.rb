@@ -20,11 +20,11 @@ class State < ActiveRecord::Base
 	has_many :cities
 	belongs_to :country
 
-	def self.create_new_city(city_name)
-		if city = City.find_by_name( city_name )
+	def add_city(city_name)
+		if city = cities.find_by_name(city_name)
 			return city
 		else
-			self.create_city(:name => city_name)
+			create_city(name: :city_name)
 		end
 	end
 end
