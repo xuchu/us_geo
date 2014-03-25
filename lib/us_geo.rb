@@ -1,3 +1,4 @@
+require './db_conn'
 require './us_geo_models'
 
 str = "99511,Anchorage,Alaska,AK"

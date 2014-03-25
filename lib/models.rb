@@ -1,5 +1,3 @@
-require './us_geo_db'
-
 class City < ActiveRecord::Base
 	has_many :postcodes
 	belongs_to :state

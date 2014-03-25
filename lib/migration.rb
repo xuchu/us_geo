@@ -1,4 +1,4 @@
-require "./us_geo_db"
+require "./db_conn"
 
 ActiveRecord::Base.establish_connection(
   :adapter  => 'mysql2',
