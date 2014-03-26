@@ -6,6 +6,14 @@ end
 class Country < ActiveRecord::Base
 	validates :name, uniqueness: true
 	has_many :states
+
+	def add_state( name, abbr )
+		if state = states.find_by_name(name)
+			return state
+		else
+			state = states.build(:name => name, :abbr => abbr)
+		end
+	end
 end
 
 class Postcode < ActiveRecord::Base
@@ -18,11 +26,4 @@ class State < ActiveRecord::Base
 	has_many :cities
 	belongs_to :country
 
-	def add_city(city_name)
-		if city = cities.find_by_name(city_name)
-			return city
-		else
-			create_city(name: :city_name)
-		end
-	end
 end
