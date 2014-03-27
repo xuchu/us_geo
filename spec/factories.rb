@@ -3,3 +3,10 @@ FactoryGirl.define do
     name     "USAD"
   end
 end
+
+FactoryGirl.define do
+  factory :state do
+    name     "Alaska"
+    abbr     "AK"
+  end
+end

@@ -1,18 +1,15 @@
 class City < ActiveRecord::Base
 	has_many :postcodes
 	belongs_to :state
+	belongs_to :country, through: :state
 end
 
 class Country < ActiveRecord::Base
 	validates :name, uniqueness: true
 	has_many :states
 
-	def add_state( name, abbr )
-		if state = states.find_by_name(name)
-			return state
-		else
-			state = states.build(:name => name, :abbr => abbr)
-		end
+	def add_state(name, abbr)
+		states.find_or_create_by(:name => name, :abbr => abbr)
 	end
 end
 
@@ -27,10 +24,6 @@ class State < ActiveRecord::Base
 	belongs_to :country
 
 	def add_city( name )
-		if city = cities.find_by_name(name)
-			return city
-		else
-			city = cities.build(:name => name)
-		end
+		cities.find_or_create_by(:name => name)
 	end
 end
