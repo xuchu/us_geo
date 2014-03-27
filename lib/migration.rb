@@ -1,12 +1,5 @@
 require "./db_conn"
 
-ActiveRecord::Base.establish_connection(
-  :adapter  => 'mysql2',
-  :database => 'test',
-  :username => 'root',
-  :password => 'frouds',
-  :host     => 'localhost')
-
 class City < ActiveRecord::Migration
   def change
     create_table :cities do |t|

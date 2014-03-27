@@ -26,4 +26,11 @@ class State < ActiveRecord::Base
 	has_many :cities
 	belongs_to :country
 
+	def add_city( name )
+		if city = cities.find_by_name(name)
+			return city
+		else
+			city = cities.build(:name => name)
+		end
+	end
 end
